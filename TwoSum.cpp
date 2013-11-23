@@ -15,6 +15,8 @@ static bool compare(numberIndex A, numberIndex B)
     return A.number < B.number;
 }
 
+// Here we create a new data structure to support look up for the index
+// Can also do lookup for index afterwards
 vector<int> twoSum(vector<int> &numbers, int target) {
     vector<numberIndex> numberIndexes;
     for (int i=0; i<numbers.size(); i++)
