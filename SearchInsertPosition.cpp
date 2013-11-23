@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// Here uses recursion which is not necessary
+// Use iterative approach when non diverge path computation
 void searchInsert(int A[], int start, int end, int target, int& ret) {
     if (start > end)
         return;
