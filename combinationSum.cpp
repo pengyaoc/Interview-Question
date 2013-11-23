@@ -3,6 +3,12 @@
 #include <algorithm>
 using namespace std;
 
+/* 
+    Similar to all problems related to print out all possible path,
+    we use a current and a return. When hit the end, we push current
+    (which contains the path) into ret.
+    Similar problem: palindrome partitioning
+*/
 void combinationSum(vector<int> &candidates, int target, int start,
                     vector<vector<int> >& ret, vector<int> current) 
 {
