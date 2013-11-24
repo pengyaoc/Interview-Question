@@ -19,46 +19,39 @@ int search(int A[], int n, int target) {
     while (start <= end)
     {
         mid = start - (start - end)/2;
-        cout <<  A[start] << " " << A[mid] << " " << A[end] << endl;
+        // Either first half (from index start to mid) is sorted or
+        // the second half is sorted.
+        // When first half is sorted, two cases:
+        // 1. target is in range (between A[start] and A[mid])
+        // 2. target is out of range
+        // If (1), in this half. If (2), in the other half.
         if (A[mid] == target)
         {
             return mid;
         }
-        if (start == mid)
+        // first half is sorted
+        else if (A[start] <= A[mid])
         {
-            start++;
+            if (A[start] <= target && target < A[mid])
+            {
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
         }
-        else if (end == mid)
+        // second half is sorted
+        else // if (A[mid] <= A[end])
         {
-            end--;
-        }
-        else if (A[start] <= target && target < A[mid]) 
-        {
-            end = mid-1;
-        }
-        else if (A[mid] < target && target <= A[end])
-        {
-            start = mid+1;
-        }
-        else if (A[start] <= target && target > A[mid] && A[start] < A[mid])
-        {
-            start = mid+1;            
-        }
-        else if (A[mid] < target && target >= A[end] && A[mid] < A[end])
-        {
-            end = mid-1;
-        }
-        else if (A[start] >= target && target < A[mid] && A[start] < A[mid])
-        {
-            start = mid+1;            
-        }
-        else if (A[mid] > target && target <= A[end] && A[mid] < A[end])
-        {
-            end = mid-1;
-        }
-        else
-        {
-            return -1;
+            if (A[mid] < target && target <= A[end])
+            {
+                start = mid + 1; 
+            }
+            else
+            {
+                end = mid - 1;   
+            }
         }
     }
     return -1;
