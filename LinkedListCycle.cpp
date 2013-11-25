@@ -2,6 +2,8 @@
     Given a linked list, determine if it has a cycle in it.
 */
 
+// Solution here is cleaner: http://leetcode.com/2010/09/detecting-loop-in-singly-linked-list.html
+
 bool hasCycle(ListNode *head) {
     if (!head)
         return false;
